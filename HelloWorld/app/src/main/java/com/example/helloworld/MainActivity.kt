@@ -2,7 +2,6 @@ package com.example.helloworld
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.style.BackgroundColorSpan
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
@@ -19,7 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         // User can tap a button to change the text color of the label.
         // 1. Add a button to our layout
-
 
         /**
          Change text color button
@@ -41,6 +39,14 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.buttonViewColor).setOnClickListener {
             Log.i("Sam", "Button is Working")
             findViewById<ConstraintLayout>(R.id.background).setBackgroundColor(getResources().getColor(R.color.green))
+        }
+
+        /**
+        Change text string button
+         */
+        findViewById<Button>(R.id.buttonTextString).setOnClickListener {
+            Log.i("Sam", "Button is Working")
+            findViewById<TextView>(R.id.textView).text = "Goodbye \uD83D\uDC4B"
         }
     }
 }
