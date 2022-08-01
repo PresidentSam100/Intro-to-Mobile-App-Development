@@ -1,8 +1,12 @@
 package com.example.helloworld
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         // 1. Add a button to our layout
 
         /**
-        Change text color button
+         * Change text color button
          */
         // Get a reference to button
         // 2. Set up logical to know when user has tapped on button
@@ -35,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         /**
-        Change view color button
+         * Change view color button
          */
         findViewById<Button>(R.id.buttonViewColor).setOnClickListener {
             Log.i("Sam", "Button is Working")
@@ -43,20 +47,34 @@ class MainActivity : AppCompatActivity() {
         }
 
         /**
-        Change text string button
+         * Change text string button
+         * Dismiss keyboard after clicking button
          */
-        findViewById<Button>(R.id.buttonTextString).setOnClickListener {
+        findViewById<Button>(R.id.buttonTextString).setOnClickListener {v ->
             Log.i("Sam", "Button is Working")
-            findViewById<TextView>(R.id.textView).text = "Goodbye \uD83D\uDC4B"
+            if (findViewById<EditText>(R.id.editText).text.isNotEmpty()) {
+                findViewById<TextView>(R.id.textView).text = findViewById<EditText>(R.id.editText).text
+                findViewById<EditText>(R.id.editText).text.clear()
+            }
+            else {
+                findViewById<TextView>(R.id.textView).text = "Goodbye \uD83D\uDC4B"
+            }
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+            imm?.hideSoftInputFromWindow(v.windowToken, 0)
         }
 
         /**
-        Reset all view to default setting
+         * Reset all view to default setting
          */
         findViewById<ConstraintLayout>(R.id.background).setOnClickListener {
             findViewById<ConstraintLayout>(R.id.background).setBackgroundColor(getResources().getColor(R.color.olive))
             findViewById<TextView>(R.id.textView).text = "Hello from Sam!"
             findViewById<TextView>(R.id.textView).setTextColor(getResources().getColor(R.color.black))
         }
+        /**
+         *
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+        imm?.hideSoftInputFromWindow(v.windowToken, 0)
+         */
     }
 }
