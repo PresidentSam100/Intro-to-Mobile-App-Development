@@ -4,9 +4,7 @@
 Intro to Mobile App Development Pre-Work
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
-
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+![app](https://user-images.githubusercontent.com/56271444/182068860-cb357837-2d1f-4e63-b40a-9d6e77b01d43.gif)
 
 ### Required User Stories
 - [x] 1. User sees custom text in a label - Hello from {name}!
