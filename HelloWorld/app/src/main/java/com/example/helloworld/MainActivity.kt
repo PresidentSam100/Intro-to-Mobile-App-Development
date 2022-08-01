@@ -1,15 +1,16 @@
 package com.example.helloworld
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 
 
 // This Kotlin file is where we're going to be handling user interaction
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         // 1. Add a button to our layout
 
         /**
-         Change text color button
+        Change text color button
          */
         // Get a reference to button
         // 2. Set up logical to know when user has tapped on button
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         /**
-         Change view color button
+        Change view color button
          */
         findViewById<Button>(R.id.buttonViewColor).setOnClickListener {
             Log.i("Sam", "Button is Working")
@@ -47,6 +48,15 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.buttonTextString).setOnClickListener {
             Log.i("Sam", "Button is Working")
             findViewById<TextView>(R.id.textView).text = "Goodbye \uD83D\uDC4B"
+        }
+
+        /**
+        Reset all view to default setting
+         */
+        findViewById<ConstraintLayout>(R.id.background).setOnClickListener {
+            findViewById<ConstraintLayout>(R.id.background).setBackgroundColor(getResources().getColor(R.color.olive))
+            findViewById<TextView>(R.id.textView).text = "Hello from Sam!"
+            findViewById<TextView>(R.id.textView).setTextColor(getResources().getColor(R.color.black))
         }
     }
 }
